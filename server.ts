@@ -5,8 +5,8 @@ const port = process.env.PORT ?? 9001 as number
 
 function requestListener(req: http.IncomingMessage, res: http.ServerResponse) {
     res.writeHead(200)
-    const ipClient = req.socket.localAddress as string
-    const ipServer = req.url
+    const ipServer = req.socket.localAddress as string
+    const ipClient = req.socket.remoteAddress as string
     res.end(render(ipClient, ipServer))
 }
 
