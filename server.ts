@@ -15,6 +15,8 @@ function render(req: http.IncomingMessage) {
     const ipClient = req.socket.remoteAddress
     const familyClient = req.socket.remoteFamily
 
+    console.log(`Incoming request from IP ${ipClient}`)
+
     return `<p>ipServer: ${ipServer} (${familyServer})</p>
             <p>your ip ${ipClient} (${familyClient})</p>
             <p>port ${port}</p>`
