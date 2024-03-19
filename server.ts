@@ -17,7 +17,7 @@ function render(req: http.IncomingMessage) {
 
     return `<p>ipServer: ${ipServer} (${familyServer})</p>
             <p>your ip ${ipClient} (${familyClient})</p>
-            <p>port ${port}}</p>`
+            <p>port ${port}</p>`
 }
 
 const server = http.createServer(requestListener);
