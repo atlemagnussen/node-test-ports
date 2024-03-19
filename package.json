@@ -11,5 +11,9 @@
     "ports"
   ],
   "author": "atlemagnussen",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.29",
+    "typescript": "^5.4.2"
+  }
 }
