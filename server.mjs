@@ -5,14 +5,21 @@ const port = process.env.PORT ?? 9001
 
 function requestListener(req, res) {
     res.writeHead(200)
-    const ipServer = req.socket.localAddress
-    const ipClient = req.socket.remoteAddress
+    
     res.end(render(ipClient, ipServer))
 }
 
-function render(ipClient, ipServer) {
+function render(req) {
 
-    return `<p>ipServer: ${ipServer}</p><p>your ip ${ipClient}</p><p>port ${port}}</p>`
+    const ipServer = req.socket.localAddress
+    const familyServer = req.socket.localFamily
+
+    const ipClient = req.socket.remoteAddress
+    const familyClient = req.socket.remoteFamily
+
+    return `<p>ipServer: ${ipServer} (${familyServer})</p>
+            <p>your ip ${ipClient} (${familyClient})</p>
+            <p>port ${port}}</p>`
 }
 
 const server = http.createServer(requestListener);
