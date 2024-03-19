@@ -6,7 +6,7 @@ const port = process.env.PORT ?? 9001
 function requestListener(req, res) {
     res.writeHead(200)
     
-    res.end(render(ipClient, ipServer))
+    res.end(render(req))
 }
 
 function render(req) {
